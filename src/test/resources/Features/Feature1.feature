@@ -15,6 +15,10 @@ Given Login into App
 When Items should be available in cart
 Then Delete an item from Cart
 
+Scenario: Newitems 
+Given I have deposited $100 in my Account
+When I visit the homepage
+When I go to the homepage
 
 Scenario: Place Order
 Given Login into App
@@ -23,4 +27,10 @@ When Items should be available in Cart
   | Nokia lumia 1520 |
 Then Place Order
 And Purchase Items
+
+
+
+
+
+
 

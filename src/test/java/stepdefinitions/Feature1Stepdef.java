@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import base.TestBase;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -32,12 +33,29 @@ public class Feature1Stepdef extends TestBase {
 		placeOrder = new PlaceOrder();
 	}
 	
+	@After
+	public void teardown() {
+		driver.close();
+	}
+	
 	@Given("Login into App")
 	public void login_into_app() {
 		homePage.verifyHomePage();
 		loginPage.UserLogin();
 		homePage.verifyUserLoggedIn();
 	}
+	
+	@Given("I have deposited ${int} in my Account")
+	public void i_have_deposited_$_in_my_account(Integer int1) {
+	    System.out.println(int1);
+	}
+	
+	@When("^I ([^\\\"]*) the homepage$")
+	public void i_visit_the_homepage(String s) {
+		System.out.println(s);
+
+	}
+
 
 	@When("User Adds multiple {string} to cart")
 	public void user_adds_multiple_to_cart_using_scenario_outline_examples(String item) {

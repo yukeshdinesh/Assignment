@@ -31,7 +31,7 @@ public class HomePage extends TestBase {
 	}
 
 	public void verifyUserLoggedIn() {
-		waitTime(2);
+		waitTime(5);
 		String username = usernamElement.getText();
 		System.out.println(username);
 		boolean userloggedin = username.contains("yukeshdinesh@gmail.com");

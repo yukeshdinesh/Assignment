@@ -5,7 +5,7 @@
     <classes>
       <class name="runner.Feature1Runner">
         <methods>
-          <include name="runScenario" invocation-numbers="2"/>
+          <include name="runScenario" invocation-numbers="0"/>
           <include name="tearDownClass"/>
           <include name="setUpClass"/>
         </methods>
