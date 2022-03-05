@@ -1,9 +1,26 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('Build') {
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'Building Job'
+          }
+        }
+
+        stage('Test') {
+          steps {
+            echo 'Testing the code'
+          }
+        }
+
+      }
+    }
+
+    stage('Deployment') {
       steps {
-        git(url: 'git@github.com:yukeshdinesh/Assignment.git', branch: 'master', poll: true, changelog: true)
+        echo 'Deploying the code'
       }
     }
 
