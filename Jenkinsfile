@@ -4,10 +4,9 @@ pipeline {
     stage('Build') {
       parallel {
         stage('Build') {
+        
           steps {
-            environment {
-                  local = 'C:'
-                 }
+            
             echo 'Building Job'
           }
         }
@@ -20,6 +19,9 @@ pipeline {
         }
 
         stage('Log file') {
+        environment {
+                  local = 'C:'
+                 }
           steps {
             writeFile(file: 'logfile.txt', text: "This is the log file that contains env value ${ChromeDriver} Local env in other stage: ${local}")
           }
