@@ -1,63 +1,11 @@
 pipeline {
-  agent{
-      dockerfile true
-  }
-
-  stages {
-    stage('Build') {
-      parallel {
-        stage('Build') {
-        
-          steps {
-             sh 'node --version'
-             sh 'pwd'
-            echo 'Building Job'
-          }
-        }
-
+    agent { dockerfile true }
+    stages {
         stage('Test') {
-          steps {
-            echo 'Testing the code '
-            echo "Environmental path ${ChromeDriver}"
-          }
+            steps {
+                sh 'node --version'
+                sh 'svn --version'
+            }
         }
-
-        stage('Log file') {
-        environment {
-                  local = 'C:'
-                 }
-          steps {
-            writeFile(file: 'logfile.txt', text: "This is the log file that contains env value ${ChromeDriver} Local env in other stage: ${local}")
-          }
-        }
-
-      }
     }
-
-    stage('Deployment') {
-    when{
-        branch 'master'
-    }
-
-      parallel {
-        stage('Deployment') {
-          steps {
-            input(message: 'Do you want to deploy', id: 'ok')
-            echo 'Deploying the code'
-          }
-        }
-
-        stage('Archive') {
-          steps {
-            archiveArtifacts 'logfile.txt'
-          }
-        }
-
-      }
-    }
-
-  }
-  environment {
-    ChromeDriver = 'C:'
-  }
 }
