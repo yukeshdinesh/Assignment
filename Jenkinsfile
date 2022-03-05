@@ -1,12 +1,16 @@
 pipeline {
-  agent any
+  agent{
+      dockerfile true
+  }
+
   stages {
     stage('Build') {
       parallel {
         stage('Build') {
         
           steps {
-             http://localhost:8080
+             sh 'node --version'
+             sh 'pwd'
             echo 'Building Job'
           }
         }
