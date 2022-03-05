@@ -6,7 +6,7 @@ pipeline {
         stage('Build') {
         
           steps {
-            
+             http://localhost:8080
             echo 'Building Job'
           }
         }
@@ -31,6 +31,10 @@ pipeline {
     }
 
     stage('Deployment') {
+    when{
+        branch 'master'
+    }
+
       parallel {
         stage('Deployment') {
           steps {
