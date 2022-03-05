@@ -18,7 +18,7 @@ pipeline {
 
         stage('Log file') {
           steps {
-            writeFile(file: 'logfile.txt', text: 'This is the log file that contains env value ${ChromeDriver}')
+            writeFile(file: 'logfile.txt', text: "This is the log file that contains env value ${ChromeDriver}")
           }
         }
 
