@@ -12,7 +12,7 @@ pipeline {
         stage('Test') {
           steps {
             echo 'Testing the code '
-            echo "Environmental path $(ChromeDriver)"
+            echo 'Environmental path "$(ChromeDriver)"'
           }
         }
 
