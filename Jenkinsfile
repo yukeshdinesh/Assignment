@@ -11,7 +11,8 @@ pipeline {
 
         stage('Test') {
           steps {
-            echo 'Testing the code'
+            echo 'Testing the code '
+            echo '"Environmental path $(ChromeDriver)"'
           }
         }
 
@@ -24,5 +25,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    ChromeDriver = 'C:'
   }
 }
