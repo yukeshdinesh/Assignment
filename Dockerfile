@@ -21,3 +21,13 @@ RUN usermod -a -G root jenkins
 # Good idea to switch back to the jenkins user.
 USER jenkins
 
+
+List<String> jenkinsPlugins = new ArrayList<String>(Jenkins.instance.pluginManager.plugins);
+
+jenkinsPlugins
+.sort{it.displayName}
+.each{
+  plugin ->
+  println("${plugin.shortName} : ${plugin.version}")
+}
+

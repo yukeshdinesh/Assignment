@@ -9,7 +9,7 @@ pipeline {
     stage('SCM') {
         steps {
             checkout([$class: 'GitSCM', branches: [[name: '*/Develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/executeautomation/JenkinsPipeline']]])
-          }
+          }                           
     }
 
     stage('Build') {
