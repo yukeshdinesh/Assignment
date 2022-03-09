@@ -9,12 +9,21 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import pages.CartPage;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.PlaceOrder;
 import pages.ProductPage;
 
+
+@Feature("Place an order successfully")
+@Epic("Jan to Feb Selenium Immersive course")
 public class Feature1Stepdef extends TestBase {
 	HomePage homePage;
 	LoginPage loginPage;
@@ -38,6 +47,9 @@ public class Feature1Stepdef extends TestBase {
 		driver.close();
 	}
 	
+	@Story("Userstory 1")
+	@Severity(SeverityLevel.BLOCKER)
+	@Description("Description1")
 	@Given("Login into App")
 	public void login_into_app() {
 		homePage.verifyHomePage();
