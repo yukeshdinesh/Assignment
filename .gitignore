@@ -1,4 +1,6 @@
-/target/*
-/targer/*
+*/target/*
+*/targer/*
+*/allure-report/*
+
 
 /target/
